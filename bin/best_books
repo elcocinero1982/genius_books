@@ -1,0 +1,4 @@
+
+require_relative "../lib/genius_books"
+
+GeniusBooks::Cli.new.call
