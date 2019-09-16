@@ -10,10 +10,12 @@ module GeniusBooks
      end
 
   def list_books
-    puts "genius books"
-    end
+    puts "Welcome to the 25 books you need to read before you die"
+      GeniusBooks::Book.all.each.with_index(1) do |bookobject,index|
+        puts "#{index}. #{bookobject.title}"
 
-
+      end
+  end
   def menu
     puts "Enter the number of the book you want to read from"
      input = gets.strip.downcase
@@ -40,3 +42,5 @@ module GeniusBooks
     puts "See you next time for more books!"
        end
       end
+    end
+    GeniusBooks::Cli.new.call
