@@ -1,7 +1,42 @@
-module GenuesBooks
+require "pry"
+require_relative "../genius_books"
+module GeniusBooks
   class Cli
+     def call
+       GeniusBooks::Scraper.get_books
+       list_books
+       menu
+       goodbye
+     end
+
+  def list_books
+    puts "genius books"
+    end
 
 
+  def menu
+    puts "Enter the number of the book you want to read from"
+     input = gets.strip.downcase
+       puts ""
+         if input == "1"
+      book.get_books("first")
+         elsif input == "2"
+        book.get_books("second")
+         elsif input == "3"
+      book.get_books("third")
+         elsif input == "4"
+        book.get_books("four")
+         elsif input == "5"
+  book.get_books("fifth")
+         elsif input == "list"
+      list_books
+         else
+        puts "Not sure what you want, type list or exit."
+          end
+        end
 
-  end
-end
+
+  def goodbye
+    puts "See you next time for more books!"
+       end
+      end
