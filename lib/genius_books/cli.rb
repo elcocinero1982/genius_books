@@ -4,6 +4,7 @@ module GeniusBooks
      def call
        GeniusBooks::Scraper.get_books
        list_books
+
        menu
 
      end
@@ -25,19 +26,23 @@ module GeniusBooks
        puts ""
        digit = 1..25
          if digit.include?(input.to_i)
-      puts "display book info"
+            GeniusBooks::Book.all[input.to_i - 1]
+      books=[]
+        puts "display_book_info"
          elsif input.downcase == "list"
       list_books
     #elsif input.downcase == "exit"
 
          else
-        puts "Not sure what you want, type list, exit or number of the book you one more info."
+        puts "Not sure what you want, type list, exit or number of the book you want more info."
           end
 
         end
           goodbye
-          
+
       end
+
+
   def goodbye
     puts "See you next time for more books!"
        end
